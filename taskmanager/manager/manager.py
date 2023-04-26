@@ -47,14 +47,14 @@ class Manager:
 
         try:
             self.set_builds(builds_file)
-        except:
-            print('Builds file is empty or incorrect')
+        except Exception as e:
+            print('Builds file is empty or incorrect. An exception occurred: {exception} '.format(exception=e))
             exit(2)
 
         try:
             self.set_tasks(tasks_file)
-        except:
-            print('Tasks file is empty or incorrect')
+        except Exception as e:
+            print('Tasks file is empty or incorrect. An exception occurred: {exception}'.format(exception=e))
             exit(2)
 
         self.map_dependencies()
@@ -132,8 +132,13 @@ class Manager:
         Returns a proper order of tasks in the build and a validation flag
         valid = True if there is no cycles in build, else valid = False
         """
+        g = None
 
-        g = Graph(len(build.tasks))
+        try:
+            g = Graph(len(build.tasks))
+        except Exception as e:
+            print('Failed to create graph. An exception occurred: {exception}'.format(exception=e))
+            exit(4)
 
         for i in range(len(build.tasks)):
             for j in range(len(build.tasks)):
@@ -152,11 +157,18 @@ class Manager:
 
         current_builds = self.get_builds
         orig_stdout = sys.stdout
+        f = None
 
         s = 'test_output.txt' if debug else 'output.txt'
-        f = open(s, 'w+')
 
-        sys.stdout = f
+        try:
+            f = open(s, 'w+')
+        except Exception as e:
+            print('Failed to create output.txt. An exception occurred: {exception}'.format(exception=e))
+            exit(5)
+
+        if f:
+            sys.stdout = f
 
         for build in current_builds:
             order, valid = self.manage_build(build)
@@ -170,5 +182,6 @@ class Manager:
             else:
                 print("Invalid build {build}: this build contains cycles \n".format(build = str(build.name)))
 
-        sys.stdout = orig_stdout
-        f.close()
+        if f:
+            sys.stdout = orig_stdout
+            f.close()

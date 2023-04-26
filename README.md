@@ -73,6 +73,9 @@ follow the instructions in the command line (terminal)
 return code 1: no input files found
 return code 2: empty or incorrect input files
 return code 3: trying to get a build(task) that does not exist
+return code 4: failed to create graph
+return code 5: failed to create output.txt
+return code 6: failed to build test
 ```
 
 ## Examples

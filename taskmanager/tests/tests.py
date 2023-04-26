@@ -3,7 +3,6 @@
 import random
 import yaml
 import time
-
 import os
 
 from taskmanager.manager.utils.graph import Graph
@@ -14,7 +13,14 @@ from taskmanager.manager import Build
 import networkx as nx
 
 def debug_build_class():
-    build = Build('sample_build')
+    build = None
+
+    try:
+        build = Build('sample_build')
+    except Exception as e:
+        print('Failed to build build. An exception occurred: {exception}'.format(exception=e))
+        exit(6)
+
     build.add_task('sample_task_1')
     build.add_task('sample_task_2')
     build.add_task('sample_task_3')
@@ -22,7 +28,14 @@ def debug_build_class():
     return build.name == 'sample_build' and len(build.tasks) == 3
 
 def debug_task_class():
-    task = Task('sample_task')
+    task = None
+
+    try:
+        task = Task('sample_task')
+    except Exception as e:
+        print('Failed to build task. An exception occurred: {exception}'.format(exception=e))
+        exit(6)
+
     task.add_dependency('sample_dependency_1')
     task.add_dependency('sample_dependency_2')
     task.add_dependency('sample_dependency_3')
@@ -85,7 +98,13 @@ class Test:
         return debug_build_class() and debug_task_class()
 
     def test_graph(self):
-        g = Graph(5)
+        g = None
+
+        try:
+            g = Graph(5)
+        except Exception as e:
+            print('Failed to build graph. An exception occurred: {exception}'.format(exception=e))
+            exit(6)
 
         g.add_edge(1, 2)
         g.add_edge(0, 3)
@@ -99,7 +118,11 @@ class Test:
 
 
     def test_manager(self, debug=False):
-        self.manager.manage_builds(debug)
+        try:
+            self.manager.manage_builds(debug)
+        except Exception as e:
+            print('Manager has failed. An exception occurred: {exception}'.format(exception=e))
+            exit(6)
 
     def test_toposort(self):
         n = random.randint(1, 10)
@@ -118,9 +141,8 @@ class Test:
 
             return topo in topo_list
         else:
-            print('Graph contains a cycle.')
-
-            return False
+            print('Graph contains a cycle, test is not completed. Please change seed.')
+            exit(6)
 
 class Debug:
     def __init__(self):
