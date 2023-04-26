@@ -25,7 +25,7 @@ setuptools.setup(
     python_requires=">=3.6",
     entry_points={
         "console_scripts": [
-            "manager = project.cli.cli:main",
+            "manager = taskmanager.cli.cli:main",
         ]
     }
 )

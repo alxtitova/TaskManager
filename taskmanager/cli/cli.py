@@ -31,29 +31,28 @@ def main():
 
     args = parser.parse_args()
 
-    #mymanager = Manager('../input/builds.yaml', '../input/tasks.yaml')
-    mymanager = Manager('builds.yaml', 'tasks.yaml')
-
-    if args.command == 'list':
-        if args.list_type == 'builds':
-            mymanager.list_builds()
-
-        if args.list_type == 'tasks':
-            mymanager.list_tasks()
-
-    if args.command == 'get':
-        if args.get_type == 'build':
-            mymanager.get_build(args.name)
-
-        if args.get_type == 'task':
-            mymanager.get_task(args.name)
-
-    if args.command == 'manage':
-        mymanager.manage_builds()
-
     if args.command == 'test':
         debug = Debug()
         debug.run()
+    else:
+        mymanager = Manager('builds.yaml', 'tasks.yaml')
+
+        if args.command == 'list':
+            if args.list_type == 'builds':
+                mymanager.list_builds()
+
+            if args.list_type == 'tasks':
+                mymanager.list_tasks()
+
+        if args.command == 'get':
+            if args.get_type == 'build':
+                mymanager.get_build(args.name)
+
+            if args.get_type == 'task':
+                mymanager.get_task(args.name)
+
+        if args.command == 'manage':
+            mymanager.manage_builds()
 
 if __name__ == "__main__":
     main()

@@ -69,10 +69,10 @@ class Random:
 
         print(directory)
 
-        with open('../tests/test_input/builds.yaml', 'w') as outfile:
+        with open('builds.yaml', 'w+') as outfile:
             yaml.dump(builds, outfile, default_flow_style=False)
 
-        with open('../tests/test_input/tasks.yaml', 'w') as outfile:
+        with open('tasks.yaml', 'w+') as outfile:
             yaml.dump(tasks, outfile, default_flow_style=False, sort_keys=False)
 
 
@@ -80,7 +80,7 @@ class Test:
     def __init__(self, seed):
         self.r = Random(seed)
         self.r.make_random_builds()
-        self.manager = Manager('../tests/test_input/builds.yaml', '../tests/test_input/tasks.yaml')
+        self.manager = Manager('builds.yaml', 'tasks.yaml')
 
     def test_utils(self):
         return debug_build_class() and debug_task_class()
@@ -126,7 +126,7 @@ class Test:
 class Debug:
     def __init__(self):
         print('Debug mode \n')
-        self.output_path = '../tests/test_output/output.txt'
+        self.output_path = 'test_output.txt'
 
     def run(self):
         print('Running tests')

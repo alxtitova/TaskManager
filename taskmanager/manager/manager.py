@@ -89,7 +89,7 @@ class Manager:
         f = None
 
         if debug:
-            f = open('../tests/test_output/output.txt', 'w')
+            f = open('test_output.txt', 'w+')
             sys.stdout = f
 
         for build in current_builds:
