@@ -4,6 +4,13 @@ A simple task manager with dependency resolution.
 
 Tested on Windows 11 and Ubuntu 22.04.2 LTS
 
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) inside the Task_Manager directory to install Task Manager.
+
+```bash
+pip install .
+```
 ## Input
 
 builds.yaml tasks.yaml
@@ -25,14 +32,6 @@ tasks.yaml syntax:
       - [name]
       - [name]
     
-```
-
-## Installation
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) inside the Task_Manager directory to install Task Manager.
-
-```bash
-pip install .
 ```
 
 ## Usage
@@ -68,6 +67,12 @@ manager test
 ```
 
 follow the instructions in the command line (terminal)
+
+## Exceptions
+```bash
+return code 1: no input files found
+return code 2: empty or incorrect input files
+```
 
 ## Examples
 ```bash

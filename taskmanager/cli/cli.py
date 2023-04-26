@@ -38,7 +38,7 @@ def main():
             mymanager = Manager('builds.yaml', 'tasks.yaml')
         else:
             print('No input files')
-            exit(0)
+            exit(1)
 
         if args.command == 'list':
             if args.list_type == 'builds':

@@ -33,13 +33,13 @@ class Manager:
             self.set_builds(builds_file)
         except:
             print('Builds file is empty or incorrect')
-            exit(0)
+            exit(2)
 
         try:
             self.set_tasks(tasks_file)
         except:
             print('Tasks file is empty or incorrect')
-            exit(0)
+            exit(2)
 
         self.map_dependencies()
         self.map_tasks()
