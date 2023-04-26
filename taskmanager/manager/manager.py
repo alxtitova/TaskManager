@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
-from .utils.graph import Graph
-from .utils.loader import Loader
+from taskmanager.manager.utils.graph import Graph
+from taskmanager.manager.utils.loader import Loader
+
+import sys
 
 class Build:
     def __init__(self, name):
@@ -80,16 +82,25 @@ class Manager:
 
         return order, valid
 
-    def manage_builds(self):
+    def manage_builds(self, debug=False):
         current_builds = self.builds
+        orig_stdout = sys.stdout
+
+        f = None
+
+        if debug:
+            f = open('../tests/test_output/output.txt', 'w')
+            sys.stdout = f
 
         for build in current_builds:
             order, valid = self.manage_build(build)
 
             if valid:
-                order = [build.tasks[x] for x in order]
-                print('To do in', str(build.name), ': ', ', '.join(str(x) for x in order))
+                task_list = [build.tasks[x] for x in order]
+                print('To do in', str(build.name), ': ', ', '.join(str(x) for x in task_list))
             else:
                 print("Invalid build {build}: this build contains cycles".format(build = str(build.name)))
 
-
+        if debug:
+            sys.stdout = orig_stdout
+            f.close()

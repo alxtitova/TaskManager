@@ -1,0 +1,68 @@
+builds:
+- name: pack_test
+  tasks:
+  - read_lime_leprechauns
+  - train_black_leprechauns
+  - update_blue_witches
+  - upgrade_black_cyclops
+  - enable_lime_leprechauns
+  - train_lime_leprechauns
+  - create_grey_cyclops
+  - design_blue_witches
+  - train_blue_centaurs
+  - upgrade_white_witches
+- name: important_things
+  tasks:
+  - train_orange_witches
+  - build_blue_cyclops
+  - design_blue_witches
+- name: urgent_stuff
+  tasks:
+  - upgrade_lime_witches
+  - build_red_cyclops
+  - upgrade_grey_witches
+- name: important_game
+  tasks:
+  - bring_lime_centaurs
+  - create_red_witches
+  - bring_grey_cyclops
+  - upgrade_grey_leprechauns
+  - train_orange_fairies
+  - design_grey_cyclops
+  - enable_orange_centaurs
+  - train_purple_fairies
+  - train_blue_centaurs
+- name: important_stuff
+  tasks:
+  - create_blue_cyclops
+  - update_black_witches
+  - build_grey_witches
+  - read_lime_fairies
+- name: urgent_stuff
+  tasks:
+  - build_lime_cyclops
+  - enable_orange_centaurs
+  - create_grey_cyclops
+  - upgrade_purple_leprechauns
+- name: do_things
+  tasks:
+  - read_lime_cyclops
+  - design_red_witches
+  - read_lime_cyclops
+  - bring_red_fairies
+  - read_black_centaurs
+  - update_blue_centaurs
+  - create_grey_cyclops
+  - build_orange_fairies
+  - bring_white_cyclops
+  - upgrade_purple_leprechauns
+- name: cool_game
+  tasks:
+  - enable_white_leprechauns
+  - read_white_witches
+  - design_lime_fairies
+  - upgrade_orange_fairies
+  - train_purple_fairies
+  - upgrade_grey_fairies
+  - train_purple_fairies
+  - design_blue_witches

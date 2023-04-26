@@ -35,7 +35,6 @@ tasks:
   - coloring_green_cyclops
   - create_green_cyclops
   - design_teal_cyclops
-  - upgrade_lime_leprechauns
 - name: design_silver_cyclops
   dependencies: []
 - name: design_teal_cyclops
@@ -77,7 +76,6 @@ tasks:
   - bring_black_leprechauns
   - build_blue_leprechauns
   - write_lime_leprechauns
-  - design_olive_cyclops
 - name: upgrade_olive_gnomes
   dependencies: []
 - name: upgrade_olive_leprechauns

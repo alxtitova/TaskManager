@@ -1,8 +1,15 @@
+#!/usr/bin/env python
+
 """
 The command-line interface for the task manager
 """
+import sys
 import argparse
-from manager import Manager
+
+sys.path.insert(0, '../' + __file__)
+
+from taskmanager.manager.manager import Manager
+from taskmanager.tests.tests import Debug
 
 def main():
     parser = argparse.ArgumentParser(
@@ -20,9 +27,12 @@ def main():
 
     parser_manage = subparsers.add_parser('manage', help='rearrange tasks in every build in the proper order and print the result')
 
+    parser_test = subparsers.add_parser('test', help='run builtin tests')
+
     args = parser.parse_args()
 
-    mymanager = Manager('../input/builds.yaml', '../input/tasks.yaml')
+    #mymanager = Manager('../input/builds.yaml', '../input/tasks.yaml')
+    mymanager = Manager('builds.yaml', 'tasks.yaml')
 
     if args.command == 'list':
         if args.list_type == 'builds':
@@ -40,6 +50,10 @@ def main():
 
     if args.command == 'manage':
         mymanager.manage_builds()
+
+    if args.command == 'test':
+        debug = Debug()
+        debug.run()
 
 if __name__ == "__main__":
     main()
