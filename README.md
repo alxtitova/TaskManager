@@ -6,10 +6,9 @@ Tested on Windows 11 and Ubuntu 22.04.2 LTS
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Task Manager.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) inside the Task_Manager directory to install Task Manager.
 
 ```bash
-cd TaskManager
 pip install .
 ```
 

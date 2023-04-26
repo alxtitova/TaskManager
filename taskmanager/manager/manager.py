@@ -123,9 +123,12 @@ class Manager:
 
             if valid:
                 task_list = [build.tasks[x] for x in order]
-                print('To do in', str(build.name), ': ', ', '.join(str(x) for x in task_list))
+                print('To do in', str(build.name), ': ')
+                for task in task_list:
+                    print('  ' + task)
+                print('\n')
             else:
-                print("Invalid build {build}: this build contains cycles".format(build = str(build.name)))
+                print("Invalid build {build}: this build contains cycles \n".format(build = str(build.name)))
 
         sys.stdout = orig_stdout
         f.close()
