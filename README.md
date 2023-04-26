@@ -72,6 +72,7 @@ follow the instructions in the command line (terminal)
 ```bash
 return code 1: no input files found
 return code 2: empty or incorrect input files
+return code 3: trying to get a build(task) that does not exist
 ```
 
 ## Examples

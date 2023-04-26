@@ -88,14 +88,28 @@ class Manager:
             print('* ', build.name)
 
     def get_task(self, name):
-        print('Task info: ')
-        print('* name: ', name)
-        print('* dependencies: ', ', '.join(self.dependency_map[name]))
+        if name in self.dependency_map:
+            print('Task info: ')
+            print('* name: ', name)
+            print('* dependencies: ')
+
+            for dependency in self.dependency_map[name]:
+                print(dependency, '\n')
+        else:
+            print('There is no task named {name}'.format(name=name))
+            exit(3)
 
     def get_build(self, name):
-        print('Build info: ')
-        print('* name: ', name)
-        print('* tasks: ', ', '.join(self.task_map[name]))
+        if name in self.task_map:
+            print('Build info: ')
+            print('* name: ', name)
+            print('* tasks: ')
+
+            for task in self.task_map[name]:
+                print(task)
+        else:
+            print('There is no build named {name}'.format(name=name))
+            exit(3)
 
     def manage_build(self, build):
         """
