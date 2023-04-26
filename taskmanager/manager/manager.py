@@ -23,40 +23,58 @@ class Task:
 
 class Manager:
     def __init__(self, builds_file, tasks_file):
-        self.builds = []
-        self.tasks = []
-
-        builds = Loader(builds_file).load_yaml()['builds']
-        for build in builds:
-            current_build = Build(build['name'])
-            self.builds.append(current_build)
-            for i in range(len(build['tasks'])):
-                current_build.add_task(build['tasks'][i])
-
-        tasks = Loader(tasks_file).load_yaml()['tasks']
-        for task in tasks:
-            current_task = Task(task['name'])
-            self.tasks.append(current_task)
-            for i in range(len(task['dependencies'])):
-                current_task.add_dependency(task['dependencies'][i])
+        self._builds = []
+        self._tasks = []
 
         self.dependency_map = {}
         self.task_map = {}
 
-        for i, task in enumerate(self.tasks):
+        self.set_builds(builds_file)
+        self.set_tasks(tasks_file)
+        self.map_dependencies()
+        self.map_tasks()
+
+
+    @property
+    def get_builds(self):
+        return self._builds
+
+    @property
+    def get_tasks(self):
+        return self._tasks
+
+    def set_builds(self, builds_file):
+        builds = Loader(builds_file).load_yaml()['builds']
+        for build in builds:
+            b = Build(build['name'])
+            self._builds.append(b)
+            for i in range(len(build['tasks'])):
+                self._builds[-1].add_task(build['tasks'][i])
+
+    def set_tasks(self, tasks_file):
+        tasks = Loader(tasks_file).load_yaml()['tasks']
+        for task in tasks:
+            t = Task(task['name'])
+            self._tasks.append(t)
+            for i in range(len(task['dependencies'])):
+                self._tasks[-1].add_dependency(task['dependencies'][i])
+
+    def map_dependencies(self):
+        for i, task in enumerate(self._tasks):
             self.dependency_map[task.name] = task.dependencies
 
-        for i, build in enumerate(self.builds):
+    def map_tasks(self):
+        for i, build in enumerate(self._builds):
             self.task_map[build.name] = build.tasks
 
     def list_tasks(self):
         print('List of available tasks: ')
-        for task in self.tasks:
+        for task in self.get_tasks:
             print('* ', task.name)
 
     def list_builds(self):
         print('List of available builds: ')
-        for build in self.builds:
+        for build in self.get_builds:
             print('* ', build.name)
 
     def get_task(self, name):
@@ -70,6 +88,11 @@ class Manager:
         print('* tasks: ', ', '.join(self.task_map[name]))
 
     def manage_build(self, build):
+        """
+        Returns a proper order of tasks in the build and a validation flag
+        valid = True if there is no cycles in build, else valid = False
+        """
+
         g = Graph(len(build.tasks))
 
         for i in range(len(build.tasks)):
@@ -83,14 +106,17 @@ class Manager:
         return order, valid
 
     def manage_builds(self, debug=False):
-        current_builds = self.builds
+        """
+        Manages all the builds in builds.yaml and outputs the result in .txt file
+        """
+
+        current_builds = self.get_builds
         orig_stdout = sys.stdout
 
-        f = None
+        s = 'test_output.txt' if debug else 'output.txt'
+        f = open(s, 'w+')
 
-        if debug:
-            f = open('test_output.txt', 'w+')
-            sys.stdout = f
+        sys.stdout = f
 
         for build in current_builds:
             order, valid = self.manage_build(build)
@@ -101,6 +127,5 @@ class Manager:
             else:
                 print("Invalid build {build}: this build contains cycles".format(build = str(build.name)))
 
-        if debug:
-            sys.stdout = orig_stdout
-            f.close()
+        sys.stdout = orig_stdout
+        f.close()

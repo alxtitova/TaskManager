@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 
 """
-The command-line interface for the task manager
+Command-Line Interface for the task manager
 """
-import sys
-import argparse
 
-sys.path.insert(0, '../' + __file__)
+import argparse
 
 from taskmanager.manager.manager import Manager
 from taskmanager.tests.tests import Debug
@@ -39,9 +37,11 @@ def main():
 
         if args.command == 'list':
             if args.list_type == 'builds':
+                print('Current builds: ')
                 mymanager.list_builds()
 
             if args.list_type == 'tasks':
+                print('Current tasks: ')
                 mymanager.list_tasks()
 
         if args.command == 'get':
@@ -52,6 +52,7 @@ def main():
                 mymanager.get_task(args.name)
 
         if args.command == 'manage':
+            print('Successfully managed builds in build.yaml. Open output.txt to see the result.')
             mymanager.manage_builds()
 
 if __name__ == "__main__":

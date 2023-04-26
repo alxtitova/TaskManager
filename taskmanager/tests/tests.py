@@ -21,7 +21,6 @@ def debug_build_class():
 
     return build.name == 'sample_build' and len(build.tasks) == 3
 
-
 def debug_task_class():
     task = Task('sample_task')
     task.add_dependency('sample_dependency_1')
