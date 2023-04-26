@@ -105,6 +105,11 @@ Build info:
 ```
 
 ```bash
+PS C:\Users\User\Documents\tasktest> manager get build pack_tests
+There is no build named pack_tests
+```
+
+```bash
 PS C:\Users\User\Documents\tasktest> manager test
 Debug mode
 
