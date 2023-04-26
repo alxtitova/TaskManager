@@ -1,8 +1,31 @@
 # Task Manager 1.0.0
 
-A simple task manager with dependency resolution.
+A simple task manager with dependency resolution. 
 
 Tested on Windows 11 and Ubuntu 22.04.2 LTS
+
+## Input
+
+builds.yaml tasks.yaml
+
+```bash
+builds.yaml syntax:
+    builds:
+    - name: [name]
+      tasks:
+      - [name]
+      - [name]
+      - [name]
+      
+tasks.yaml syntax:
+    tasks:
+    - name: [name]
+      dependencies:
+      - [name]
+      - [name]
+      - [name]
+    
+```
 
 ## Installation
 
