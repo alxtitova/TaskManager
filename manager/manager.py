@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-from utils.graph import Graph
-from utils.loader import Loader
+from .utils.graph import Graph
+from .utils.loader import Loader
 
 class Build:
     def __init__(self, name):
@@ -73,21 +73,23 @@ class Manager:
         for i in range(len(build.tasks)):
             for j in range(len(build.tasks)):
                 if build.tasks[j] in self.dependency_map[build.tasks[i]]:
-                    g.add_edge(i, j)
+                    g.add_edge(j, i)
 
         order = g.topological_sort()
+        valid = not g.check_for_cycles()
 
-        return order
+        return order, valid
 
     def manage_builds(self):
         current_builds = self.builds
 
         for build in current_builds:
-            order = self.manage_build(build)
+            order, valid = self.manage_build(build)
 
-            order = [build.tasks[x] for x in order]
-
-            print('To do in', str(build.name), ': ', ', '.join(str(x) for x in order))
-
+            if valid:
+                order = [build.tasks[x] for x in order]
+                print('To do in', str(build.name), ': ', ', '.join(str(x) for x in order))
+            else:
+                print("Invalid build {build}: this build contains cycles".format(build = str(build.name)))
 
 

@@ -12,7 +12,7 @@ class Graph:
         visited[v] = True
 
         for i in self.graph[v]:
-            if visited[i] == False:
+            if not visited[i]:
                 self.topological_sort_recursive(i, visited, stack)
 
         stack.append(v)
@@ -26,3 +26,16 @@ class Graph:
                 self.topological_sort_recursive(i, visited, stack)
 
         return stack
+
+    def check_for_cycles(self):
+        s = self.topological_sort()[::-1]
+
+        for i in range(self.nodes):
+            for j in self.graph[i]:
+                left = 0 if i not in s else s.index(i)
+                right = 0 if j not in s else s.index(j)
+
+                if left > right:
+                    return True
+
+        return False
