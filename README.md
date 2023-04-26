@@ -2,6 +2,8 @@
 
 A simple task manager with dependency resolution.
 
+Tested on Windows 11 and Ubuntu 22.04.2 LTS
+
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Task Manager.
@@ -46,7 +48,6 @@ manager test
 follow the instructions in the command line (terminal)
 
 ## Examples
-Windows:
 ```bash
 PS C:\Users\User\Documents\tasktest> manager manage
 Successfully managed builds in build.yaml. Open output.txt to see the result.
