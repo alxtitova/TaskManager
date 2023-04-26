@@ -11,16 +11,16 @@ setuptools.setup(
     description=("A simple task manager with dependency resolution."),
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="",
+    url="https://github.com/alxtitova/Task_Manager",
     project_urls={
-        "Bug Tracker": "",
+        "Bug Tracker": "https://github.com/alxtitova/Task_Manager/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=["yaml"],
+    install_requires=["yaml", "setuptools"],
     packages=setuptools.find_packages(),
     python_requires=">=3.6",
     entry_points={

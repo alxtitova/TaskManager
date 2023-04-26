@@ -1,0 +1,457 @@
+tasks:
+- name: build_lime_centaurs
+  dependencies:
+  - create_blue_centaurs
+  - bring_white_witches
+  - bring_blue_centaurs
+  - create_white_fairies
+  - build_grey_fairies
+  - design_purple_witches
+  - design_blue_cyclops
+- name: create_purple_centaurs
+  dependencies:
+  - create_white_witches
+  - design_grey_centaurs
+- name: read_blue_centaurs
+  dependencies:
+  - bring_red_cyclops
+  - read_purple_centaurs
+  - design_black_centaurs
+  - build_white_witches
+  - update_lime_fairies
+  - enable_white_witches
+- name: update_blue_cyclops
+  dependencies: []
+- name: read_black_centaurs
+  dependencies:
+  - update_lime_fairies
+  - design_red_centaurs
+- name: upgrade_black_cyclops
+  dependencies:
+  - design_red_cyclops
+  - train_black_cyclops
+- name: design_purple_cyclops
+  dependencies:
+  - create_white_witches
+  - update_lime_fairies
+  - update_blue_fairies
+  - upgrade_lime_leprechauns
+  - read_purple_leprechauns
+  - design_orange_centaurs
+  - create_white_witches
+  - design_purple_witches
+- name: upgrade_black_leprechauns
+  dependencies:
+  - design_black_leprechauns
+  - enable_lime_fairies
+  - design_red_centaurs
+  - create_purple_fairies
+  - bring_orange_centaurs
+  - upgrade_grey_fairies
+  - upgrade_grey_fairies
+  - create_grey_witches
+  - enable_black_centaurs
+- name: read_blue_centaurs
+  dependencies:
+  - enable_lime_fairies
+  - read_red_witches
+  - design_grey_centaurs
+- name: create_blue_centaurs
+  dependencies:
+  - create_white_fairies
+  - create_purple_fairies
+  - enable_red_centaurs
+  - bring_purple_witches
+  - enable_white_centaurs
+  - create_purple_centaurs
+  - upgrade_black_cyclops
+- name: design_red_centaurs
+  dependencies:
+  - update_purple_centaurs
+  - design_lime_witches
+  - update_blue_fairies
+  - create_purple_fairies
+  - enable_blue_centaurs
+  - enable_red_centaurs
+- name: design_red_cyclops
+  dependencies: []
+- name: upgrade_white_centaurs
+  dependencies:
+  - upgrade_lime_leprechauns
+  - design_blue_cyclops
+  - bring_red_cyclops
+  - design_black_leprechauns
+  - bring_red_cyclops
+  - design_grey_centaurs
+  - read_blue_centaurs
+  - upgrade_lime_leprechauns
+  - train_lime_witches
+- name: bring_purple_witches
+  dependencies:
+  - bring_purple_witches
+- name: design_orange_witches
+  dependencies:
+  - update_grey_centaurs
+  - design_orange_centaurs
+- name: upgrade_lime_fairies
+  dependencies:
+  - create_blue_cyclops
+  - update_black_witches
+- name: upgrade_black_cyclops
+  dependencies:
+  - bring_white_witches
+  - create_purple_fairies
+  - upgrade_black_cyclops
+  - bring_red_centaurs
+- name: bring_red_centaurs
+  dependencies:
+  - create_orange_fairies
+  - read_purple_leprechauns
+  - bring_orange_centaurs
+  - design_purple_witches
+  - build_lime_centaurs
+  - create_black_cyclops
+  - train_orange_witches
+- name: update_black_leprechauns
+  dependencies:
+  - create_blue_centaurs
+  - design_orange_centaurs
+  - upgrade_orange_centaurs
+  - design_purple_witches
+  - bring_red_cyclops
+  - train_red_leprechauns
+- name: create_black_cyclops
+  dependencies:
+  - design_red_centaurs
+  - read_white_leprechauns
+  - build_grey_fairies
+- name: design_orange_fairies
+  dependencies:
+  - create_black_cyclops
+  - design_purple_cyclops
+  - bring_blue_centaurs
+  - train_black_cyclops
+  - bring_blue_centaurs
+  - bring_red_cyclops
+  - train_red_leprechauns
+  - design_blue_cyclops
+  - train_lime_witches
+- name: create_white_witches
+  dependencies:
+  - upgrade_lime_fairies
+  - bring_purple_witches
+  - upgrade_lime_fairies
+  - design_grey_centaurs
+  - train_black_cyclops
+  - build_grey_fairies
+  - bring_white_witches
+  - create_blue_centaurs
+  - upgrade_grey_fairies
+- name: design_orange_fairies
+  dependencies:
+  - design_orange_witches
+  - design_orange_centaurs
+  - bring_red_centaurs
+  - update_red_witches
+  - upgrade_black_cyclops
+  - upgrade_lime_fairies
+  - design_red_cyclops
+  - upgrade_grey_fairies
+- name: enable_black_leprechauns
+  dependencies:
+  - read_purple_leprechauns
+- name: train_lime_witches
+  dependencies:
+  - bring_orange_centaurs
+  - upgrade_orange_centaurs
+  - create_purple_fairies
+  - update_lime_fairies
+  - design_black_leprechauns
+- name: update_black_witches
+  dependencies:
+  - bring_white_witches
+  - build_black_fairies
+  - design_black_centaurs
+  - enable_lime_fairies
+  - train_lime_witches
+  - design_grey_centaurs
+  - read_white_leprechauns
+- name: create_orange_fairies
+  dependencies:
+  - upgrade_black_leprechauns
+  - build_lime_cyclops
+  - create_purple_fairies
+- name: update_red_witches
+  dependencies:
+  - bring_red_cyclops
+  - upgrade_lime_leprechauns
+  - update_lime_fairies
+  - bring_white_witches
+  - bring_red_cyclops
+- name: enable_white_centaurs
+  dependencies:
+  - bring_red_cyclops
+  - enable_black_leprechauns
+  - bring_white_witches
+- name: build_lime_centaurs
+  dependencies:
+  - upgrade_black_cyclops
+  - create_purple_centaurs
+  - bring_red_centaurs
+  - enable_blue_centaurs
+  - design_orange_fairies
+  - design_orange_centaurs
+- name: train_lime_witches
+  dependencies:
+  - enable_white_witches
+  - upgrade_orange_fairies
+  - upgrade_white_centaurs
+  - build_lime_cyclops
+  - design_black_leprechauns
+  - upgrade_orange_centaurs
+  - enable_blue_centaurs
+  - upgrade_grey_fairies
+  - create_grey_witches
+  - train_lime_witches
+- name: design_black_centaurs
+  dependencies:
+  - design_orange_centaurs
+  - train_black_cyclops
+  - train_orange_witches
+  - update_red_witches
+  - create_black_cyclops
+- name: train_orange_witches
+  dependencies:
+  - train_orange_witches
+  - upgrade_black_leprechauns
+- name: train_lime_witches
+  dependencies:
+  - upgrade_lime_leprechauns
+  - design_orange_witches
+  - enable_black_centaurs
+  - design_purple_witches
+  - train_lime_witches
+  - train_black_cyclops
+  - train_lime_witches
+  - update_blue_fairies
+  - enable_white_centaurs
+  - train_lime_witches
+- name: read_red_witches
+  dependencies:
+  - read_blue_centaurs
+  - design_blue_cyclops
+  - create_orange_fairies
+  - design_orange_centaurs
+  - create_purple_fairies
+  - create_white_fairies
+  - create_white_fairies
+  - read_black_centaurs
+  - read_black_centaurs
+- name: read_purple_centaurs
+  dependencies:
+  - bring_white_witches
+  - design_blue_cyclops
+  - read_blue_centaurs
+  - create_grey_witches
+  - design_orange_fairies
+  - create_purple_fairies
+  - update_black_witches
+- name: read_white_leprechauns
+  dependencies:
+  - build_black_fairies
+  - upgrade_black_leprechauns
+  - create_white_fairies
+  - enable_black_centaurs
+  - bring_blue_centaurs
+  - upgrade_lime_leprechauns
+- name: build_grey_fairies
+  dependencies:
+  - design_black_leprechauns
+  - design_lime_witches
+  - train_red_leprechauns
+  - upgrade_orange_centaurs
+  - create_grey_witches
+  - bring_red_cyclops
+  - enable_blue_centaurs
+  - enable_white_centaurs
+  - train_lime_witches
+- name: design_lime_witches
+  dependencies:
+  - update_black_witches
+  - bring_red_cyclops
+  - bring_purple_witches
+  - create_purple_fairies
+  - enable_lime_fairies
+  - update_purple_centaurs
+- name: train_orange_witches
+  dependencies:
+  - train_lime_witches
+- name: train_black_cyclops
+  dependencies:
+  - design_orange_fairies
+  - bring_grey_cyclops
+  - bring_red_centaurs
+- name: read_blue_centaurs
+  dependencies:
+  - update_purple_centaurs
+  - create_purple_fairies
+  - update_red_witches
+  - bring_orange_centaurs
+  - enable_white_centaurs
+  - bring_red_cyclops
+  - bring_blue_centaurs
+  - build_grey_fairies
+  - create_purple_fairies
+  - create_white_witches
+- name: upgrade_lime_fairies
+  dependencies:
+  - create_purple_fairies
+  - design_purple_cyclops
+  - read_white_leprechauns
+- name: create_blue_cyclops
+  dependencies:
+  - enable_blue_centaurs
+  - bring_white_witches
+  - design_black_centaurs
+  - create_white_witches
+  - enable_red_centaurs
+  - design_orange_witches
+  - design_orange_centaurs
+  - bring_orange_centaurs
+- name: design_blue_cyclops
+  dependencies:
+  - bring_red_cyclops
+  - design_grey_centaurs
+  - update_blue_cyclops
+- name: create_blue_centaurs
+  dependencies:
+  - design_red_cyclops
+  - enable_black_centaurs
+  - design_orange_centaurs
+  - upgrade_lime_fairies
+- name: update_grey_centaurs
+  dependencies:
+  - update_grey_centaurs
+  - upgrade_lime_leprechauns
+- name: update_blue_fairies
+  dependencies:
+  - enable_black_centaurs
+  - design_red_cyclops
+  - enable_red_centaurs
+- name: upgrade_orange_centaurs
+  dependencies:
+  - create_white_fairies
+  - design_purple_cyclops
+  - upgrade_grey_fairies
+  - create_blue_cyclops
+  - design_purple_witches
+  - enable_red_centaurs
+  - create_blue_cyclops
+- name: read_purple_leprechauns
+  dependencies:
+  - design_black_leprechauns
+  - create_black_cyclops
+- name: create_purple_fairies
+  dependencies:
+  - create_white_witches
+- name: design_blue_cyclops
+  dependencies:
+  - upgrade_lime_fairies
+  - train_red_leprechauns
+  - read_black_centaurs
+  - upgrade_orange_centaurs
+  - bring_red_centaurs
+  - design_purple_cyclops
+  - design_purple_witches
+- name: upgrade_orange_centaurs
+  dependencies:
+  - bring_red_centaurs
+  - update_grey_centaurs
+  - bring_purple_witches
+  - enable_lime_fairies
+  - update_black_leprechauns
+  - upgrade_orange_fairies
+  - enable_black_leprechauns
+- name: update_purple_centaurs
+  dependencies:
+  - create_purple_centaurs
+  - bring_blue_centaurs
+- name: bring_blue_centaurs
+  dependencies: []
+- name: enable_lime_fairies
+  dependencies:
+  - create_white_witches
+  - update_grey_centaurs
+  - build_white_witches
+  - enable_white_centaurs
+  - read_black_centaurs
+- name: design_purple_cyclops
+  dependencies:
+  - bring_red_cyclops
+  - design_orange_witches
+  - bring_red_cyclops
+  - upgrade_orange_fairies
+  - train_lime_witches
+  - upgrade_black_cyclops
+  - design_red_cyclops
+  - upgrade_grey_fairies
+- name: update_blue_fairies
+  dependencies:
+  - read_black_centaurs
+  - train_orange_witches
+  - upgrade_black_cyclops
+  - upgrade_lime_leprechauns
+  - create_blue_centaurs
+  - train_lime_witches
+  - enable_blue_centaurs
+- name: design_blue_cyclops
+  dependencies:
+  - enable_white_witches
+  - train_red_leprechauns
+  - build_black_fairies
+  - design_red_centaurs
+- name: design_purple_witches
+  dependencies:
+  - update_purple_centaurs
+  - update_red_witches
+  - design_black_leprechauns
+  - train_orange_witches
+- name: update_black_leprechauns
+  dependencies:
+  - enable_lime_fairies
+  - upgrade_orange_centaurs
+  - design_lime_witches
+  - read_red_witches
+  - upgrade_orange_fairies
+  - bring_purple_witches
+  - upgrade_lime_fairies
+- name: create_blue_cyclops
+  dependencies:
+  - upgrade_lime_fairies
+- name: bring_grey_cyclops
+  dependencies:
+  - read_blue_centaurs
+  - update_grey_centaurs
+- name: create_blue_cyclops
+  dependencies:
+  - create_orange_fairies
+  - enable_white_centaurs
+  - create_purple_centaurs
+  - upgrade_black_cyclops
+  - update_blue_fairies
+  - create_purple_centaurs
+  - read_black_centaurs
+  - read_purple_centaurs
+- name: bring_grey_cyclops
+  dependencies:
+  - build_lime_cyclops
+  - bring_grey_cyclops
+  - upgrade_lime_fairies
+  - build_black_fairies
+  - design_purple_witches
+  - build_black_fairies
+  - upgrade_lime_fairies
+  - read_purple_leprechauns
+- name: enable_white_witches
+  dependencies:
+  - design_purple_cyclops

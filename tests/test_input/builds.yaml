@@ -1,0 +1,87 @@
+builds:
+- name: pack_stuff
+  tasks:
+  - build_lime_centaurs
+  - create_purple_centaurs
+  - read_blue_centaurs
+- name: urgent_release
+  tasks:
+  - update_blue_cyclops
+  - read_black_centaurs
+  - upgrade_black_cyclops
+  - design_purple_cyclops
+  - upgrade_black_leprechauns
+  - read_blue_centaurs
+  - create_blue_centaurs
+  - design_red_centaurs
+  - design_red_cyclops
+- name: urgent_build
+  tasks:
+  - upgrade_white_centaurs
+  - bring_purple_witches
+  - design_orange_witches
+  - upgrade_lime_fairies
+  - upgrade_black_cyclops
+  - bring_red_centaurs
+  - update_black_leprechauns
+  - create_black_cyclops
+  - design_orange_fairies
+  - create_white_witches
+- name: important_release
+  tasks:
+  - design_orange_fairies
+  - enable_black_leprechauns
+  - train_lime_witches
+  - update_black_witches
+- name: cool_things
+  tasks:
+  - create_orange_fairies
+  - update_red_witches
+  - enable_white_centaurs
+  - build_lime_centaurs
+  - train_lime_witches
+  - design_black_centaurs
+  - train_orange_witches
+- name: do_stuff
+  tasks:
+  - train_lime_witches
+  - read_red_witches
+  - read_purple_centaurs
+  - read_white_leprechauns
+  - build_grey_fairies
+  - design_lime_witches
+- name: do_game
+  tasks:
+  - train_orange_witches
+  - train_black_cyclops
+  - read_blue_centaurs
+  - upgrade_lime_fairies
+  - create_blue_cyclops
+  - design_blue_cyclops
+  - create_blue_centaurs
+  - update_grey_centaurs
+  - update_blue_fairies
+  - upgrade_orange_centaurs
+- name: pack_build
+  tasks:
+  - read_purple_leprechauns
+  - create_purple_fairies
+  - design_blue_cyclops
+  - upgrade_orange_centaurs
+  - update_purple_centaurs
+  - bring_blue_centaurs
+  - enable_lime_fairies
+  - design_purple_cyclops
+- name: do_test
+  tasks:
+  - update_blue_fairies
+  - design_blue_cyclops
+  - design_purple_witches
+  - update_black_leprechauns
+  - create_blue_cyclops
+  - bring_grey_cyclops
+  - create_blue_cyclops
+- name: urgent_build
+  tasks:
+  - bring_grey_cyclops
+  - enable_white_witches
