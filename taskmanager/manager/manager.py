@@ -7,19 +7,35 @@ import sys
 
 class Build:
     def __init__(self, name):
-        self.name = name
-        self.tasks = []
+        self._name = name
+        self._tasks = []
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def tasks(self):
+        return self._tasks
 
     def add_task(self, name):
-        self.tasks.append(name)
+        self._tasks.append(name)
 
 class Task:
     def __init__(self, name):
-        self.name = name
-        self.dependencies = []
+        self._name = name
+        self._dependencies = []
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def dependencies(self):
+        return self._dependencies
 
     def add_dependency(self, name):
-        self.dependencies.append(name)
+        self._dependencies.append(name)
 
 class Manager:
     def __init__(self, builds_file, tasks_file):

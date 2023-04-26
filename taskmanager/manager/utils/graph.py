@@ -2,8 +2,16 @@ from collections import defaultdict
 
 class Graph:
     def __init__(self, N):
-        self.graph = defaultdict(list)
-        self.nodes = N
+        self._graph = defaultdict(list)
+        self._nodes = N
+
+    @property
+    def nodes(self):
+        return self._nodes
+
+    @property
+    def graph (self):
+        return self._graph
 
     def add_edge(self, v, u):
         self.graph[v].append(u)
