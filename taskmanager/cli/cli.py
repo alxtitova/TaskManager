@@ -5,6 +5,7 @@ Command-Line Interface for the task manager
 """
 
 import argparse
+import os
 
 from taskmanager.manager.manager import Manager
 from taskmanager.tests.tests import Debug
@@ -23,9 +24,9 @@ def main():
     parser_get.add_argument('get_type', type=str, nargs='?')
     parser_get.add_argument('name', type=str, nargs='?')
 
-    parser_manage = subparsers.add_parser('manage', help='rearrange tasks in every build in the proper order and print the result')
+    subparsers.add_parser('manage', help='rearrange tasks in every build in the proper order and print the result')
 
-    parser_test = subparsers.add_parser('test', help='run builtin tests')
+    subparsers.add_parser('test', help='run builtin tests')
 
     args = parser.parse_args()
 
@@ -33,7 +34,11 @@ def main():
         debug = Debug()
         debug.run()
     else:
-        mymanager = Manager('builds.yaml', 'tasks.yaml')
+        if os.path.isfile('builds.yaml') and os.path.isfile('tasks.yaml'):
+            mymanager = Manager('builds.yaml', 'tasks.yaml')
+        else:
+            print('No input files')
+            exit(0)
 
         if args.command == 'list':
             if args.list_type == 'builds':

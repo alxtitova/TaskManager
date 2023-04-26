@@ -29,8 +29,18 @@ class Manager:
         self.dependency_map = {}
         self.task_map = {}
 
-        self.set_builds(builds_file)
-        self.set_tasks(tasks_file)
+        try:
+            self.set_builds(builds_file)
+        except:
+            print('Builds file is empty or incorrect')
+            exit(0)
+
+        try:
+            self.set_tasks(tasks_file)
+        except:
+            print('Tasks file is empty or incorrect')
+            exit(0)
+
         self.map_dependencies()
         self.map_tasks()
 

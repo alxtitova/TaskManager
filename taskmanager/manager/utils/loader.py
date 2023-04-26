@@ -10,5 +10,6 @@ class Loader:
             try:
                 result = yaml.safe_load(stream)
             except yaml.YAMLError as exc:
-                print("Error loading YAML file {file}: {error}".format(file=file_path, error=exc))
+                print("Error loading YAML file {file}: {error}".format(file=self.file_path, error=exc))
+                exit(0)
         return result
