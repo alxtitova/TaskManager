@@ -18,7 +18,7 @@ def debug_build_class():
     try:
         build = Build('sample_build')
     except Exception as e:
-        print('Failed to build build. An exception occurred: {exception}'.format(exception=e))
+        print('Failed to build build. An exception occurred: {exception}'.format(exception=type(e)))
         exit(6)
 
     build.add_task('sample_task_1')
@@ -33,7 +33,7 @@ def debug_task_class():
     try:
         task = Task('sample_task')
     except Exception as e:
-        print('Failed to build task. An exception occurred: {exception}'.format(exception=e))
+        print('Failed to build task. An exception occurred: {exception}'.format(exception=type(e)))
         exit(6)
 
     task.add_dependency('sample_dependency_1')
@@ -103,7 +103,7 @@ class Test:
         try:
             g = Graph(5)
         except Exception as e:
-            print('Failed to build graph. An exception occurred: {exception}'.format(exception=e))
+            print('Failed to build graph. An exception occurred: {exception}'.format(exception=type(e)))
             exit(6)
 
         g.add_edge(1, 2)
@@ -121,7 +121,7 @@ class Test:
         try:
             self.manager.manage_builds(debug)
         except Exception as e:
-            print('Manager has failed. An exception occurred: {exception}'.format(exception=e))
+            print('Manager has failed. An exception occurred: {exception}'.format(exception=type(e)))
             exit(6)
 
     def test_toposort(self):

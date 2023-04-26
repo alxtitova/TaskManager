@@ -48,13 +48,13 @@ class Manager:
         try:
             self.set_builds(builds_file)
         except Exception as e:
-            print('Builds file is empty or incorrect. An exception occurred: {exception} '.format(exception=e))
+            print('Builds file is empty or incorrect. An exception occurred: {exception} '.format(exception=type(e)))
             exit(2)
 
         try:
             self.set_tasks(tasks_file)
         except Exception as e:
-            print('Tasks file is empty or incorrect. An exception occurred: {exception}'.format(exception=e))
+            print('Tasks file is empty or incorrect. An exception occurred: {exception}'.format(exception=type(e)))
             exit(2)
 
         self.map_dependencies()
@@ -137,7 +137,7 @@ class Manager:
         try:
             g = Graph(len(build.tasks))
         except Exception as e:
-            print('Failed to create graph. An exception occurred: {exception}'.format(exception=e))
+            print('Failed to create graph. An exception occurred: {exception}'.format(exception=type(e)))
             exit(4)
 
         for i in range(len(build.tasks)):
@@ -164,7 +164,7 @@ class Manager:
         try:
             f = open(s, 'w+')
         except Exception as e:
-            print('Failed to create output.txt. An exception occurred: {exception}'.format(exception=e))
+            print('Failed to create output.txt. An exception occurred: {exception}'.format(exception=type(e)))
             exit(5)
 
         if f:
