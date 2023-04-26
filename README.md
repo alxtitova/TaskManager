@@ -36,7 +36,7 @@ manager list tasks
 to print a build (task) with the name [name]:
 ```bash
 manager get build name 
-managet get task name
+manager get task name
 ```
 
 to run tests:
