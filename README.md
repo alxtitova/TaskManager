@@ -113,6 +113,16 @@ There is no build named pack_tests
 ```
 
 ```bash
-PS C:\Users\User\Documents\tasktest> manager get build pack_tests
-There is no build named pack_tests
+PS C:\Users\User\Documents\tasktest> manager test
+Debug mode
+
+Running tests
+Enter seed (unsigned int): 2
+Generating random input data...
+C:\Users\User\Documents\tasktest
+Manager class: test passed
+Build class: test passed
+Graph class: test passed
+Topological sort: test passed
+Output written in test_output.txt
 ```
