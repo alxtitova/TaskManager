@@ -126,7 +126,7 @@ class Manager:
             print('* dependencies: ')
 
             for dependency in self.dependency_map[name]:
-                print(dependency, '\n')
+                print(dependency)
         else:
             print('There is no task named {name}'.format(name=name))
             exit(3)
