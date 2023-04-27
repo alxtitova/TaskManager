@@ -113,44 +113,6 @@ There is no build named pack_tests
 ```
 
 ```bash
-PS C:\Users\User\Documents\tasktest> manager test
-Debug mode
-
-Running tests
-Enter seed (unsigned int): 16
-C:\Users\User\Documents\tasktest
-Build class: test passed
-Graph class: test passed
-Topological sort: test passed
-Generating random input data...
-Output written in test_output.txt
-PS C:\Users\User\Documents\tasktest> more test_output.txt
-To do in urgent_build :  
-  build_red_leprechauns
-  create_orange_witches
-  read_grey_cyclops
-  create_orange_witches
-  design_orange_leprechauns
-  update_orange_leprechauns
-  design_black_cyclops
-  read_grey_cyclops
-  
-Invalid build do_release: this build contains cycles
-
-Invalid build cool_test: this build contains cycles
-
-To do in important_build :  
-  upgrade_orange_witches
-  read_grey_cyclops
-  read_white_witches
-  train_lime_centaurs
-  train_lime_centaurs
-  update_grey_centaurs
-  build_purple_cyclops
-  upgrade_grey_witches
-  upgrade_grey_witches
-  
-Invalid build cool_test: this build contains cycles
-
-PS C:\Users\User\Documents\tasktest>
+PS C:\Users\User\Documents\tasktest> manager get build pack_tests
+There is no build named pack_tests
 ```

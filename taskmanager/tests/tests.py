@@ -90,6 +90,8 @@ class Random:
 
 class Test:
     def __init__(self, seed):
+        print('Generating random input data...')
+
         self.r = Random(seed)
         self.r.make_random_builds()
         self.manager = Manager('builds.yaml', 'tasks.yaml')
@@ -124,6 +126,8 @@ class Test:
             print('Manager has failed. An exception occurred: {exception}'.format(exception=type(e)))
             exit(6)
 
+        return True
+
     def test_toposort(self):
         n = random.randint(1, 10)
         p = 1/random.randint(1,100)
@@ -134,14 +138,14 @@ class Test:
         for e in list(gnx.edges):
             g.add_edge(e[1], e[0])
 
-        topo = g.topological_sort()
-
         if not g.check_for_cycles():
+            topo = g.topological_sort()
+
             topo_list = list(nx.all_topological_sorts(gnx))
 
             return topo in topo_list
         else:
-            print('Graph contains a cycle, test is not completed. Please change seed.')
+            print('Test is not completed. Please change seed.')
             exit(6)
 
 class Debug:
@@ -154,6 +158,13 @@ class Debug:
 
         seed = input('Enter seed (unsigned int): ')
         test = Test(seed)
+
+        time.sleep(1)
+
+        if test.test_manager(debug=True):
+            print('Manager class: test passed')
+        else:
+            print('Manager class: test failed')
 
         if test.test_utils():
             print('Build class: test passed')
@@ -176,9 +187,4 @@ class Debug:
 
         time.sleep(1)
 
-        print('Generating random input data...')
-
-        time.sleep(1)
-
-        test.test_manager(debug=True)
         print('Output written in {output}'.format(output=self.output_path))

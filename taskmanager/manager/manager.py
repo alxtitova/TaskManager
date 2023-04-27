@@ -8,7 +8,10 @@ import sys
 class Build:
     def __init__(self, name):
         self._name = name
-        self._tasks = []
+        self._tasks = {}
+
+    def __hash__(self):
+        return hash(self.name)
 
     @property
     def name(self):
@@ -19,12 +22,15 @@ class Build:
         return self._tasks
 
     def add_task(self, name):
-        self._tasks.append(name)
+        self._tasks[name] = name
 
 class Task:
     def __init__(self, name):
         self._name = name
-        self._dependencies = []
+        self._dependencies = {}
+
+    def __hash__(self):
+        return hash(self.name)
 
     @property
     def name(self):
@@ -35,7 +41,7 @@ class Task:
         return self._dependencies
 
     def add_dependency(self, name):
-        self._dependencies.append(name)
+        self._dependencies[name] = name
 
 class Manager:
     def __init__(self, builds_file, tasks_file):
@@ -62,18 +68,23 @@ class Manager:
 
 
     @property
-    def get_builds(self):
+    def builds(self):
         return self._builds
 
     @property
-    def get_tasks(self):
+    def tasks(self):
         return self._tasks
 
     def set_builds(self, builds_file):
         builds = Loader(builds_file).load_yaml()['builds']
         for build in builds:
             b = Build(build['name'])
+
+            if b.__hash__() in [x.__hash__() for x in self._builds]:
+                print('Warning: duplicate build {build}'.format(build=b.name))
+
             self._builds.append(b)
+
             for i in range(len(build['tasks'])):
                 self._builds[-1].add_task(build['tasks'][i])
 
@@ -81,7 +92,12 @@ class Manager:
         tasks = Loader(tasks_file).load_yaml()['tasks']
         for task in tasks:
             t = Task(task['name'])
+
+            if t.__hash__() in [x.__hash__() for x in self._tasks]:
+                print('Warning: duplicate task {task}'.format(task=t.name))
+
             self._tasks.append(t)
+
             for i in range(len(task['dependencies'])):
                 self._tasks[-1].add_dependency(task['dependencies'][i])
 
@@ -95,12 +111,12 @@ class Manager:
 
     def list_tasks(self):
         print('List of available tasks: ')
-        for task in self.get_tasks:
+        for task in self.tasks:
             print('* ', task.name)
 
     def list_builds(self):
         print('List of available builds: ')
-        for build in self.get_builds:
+        for build in self.builds:
             print('* ', build.name)
 
     def get_task(self, name):
@@ -142,7 +158,8 @@ class Manager:
 
         for i in range(len(build.tasks)):
             for j in range(len(build.tasks)):
-                if build.tasks[j] in self.dependency_map[build.tasks[i]]:
+                tl = list(build.tasks)
+                if tl[j] in self.dependency_map[tl[i]]:
                     g.add_edge(j, i)
 
         order = g.topological_sort()
@@ -155,7 +172,7 @@ class Manager:
         Manages all the builds in builds.yaml and outputs the result in .txt file
         """
 
-        current_builds = self.get_builds
+        current_builds = self.builds
         orig_stdout = sys.stdout
         f = None
 
@@ -174,7 +191,8 @@ class Manager:
             order, valid = self.manage_build(build)
 
             if valid:
-                task_list = [build.tasks[x] for x in order]
+                tl = list(build.tasks)
+                task_list = [tl[x] for x in order]
                 print('To do in', str(build.name), ': ')
                 for task in task_list:
                     print('  ' + task)
